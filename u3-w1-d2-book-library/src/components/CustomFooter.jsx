@@ -1,4 +1,5 @@
 import Container from "react-bootstrap/Container"
+import "./CustomFooter.css"
 
 const CustomFooter = () => {
   return (

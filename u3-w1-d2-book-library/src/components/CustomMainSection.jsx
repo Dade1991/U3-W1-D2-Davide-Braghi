@@ -3,11 +3,12 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
+import "./CustomMainSection.css"
 import sciFiBooks from "../data/scifi.json"
 
 const CustomMainSection = () => {
   return (
-    <Container>
+    <Container className="mb-5">
       <Row className="justify-content-center pt-5">
         <Col xs={12} className="text-center">
           <h1>Welcome to e-Book Online Library!</h1>
@@ -17,16 +18,20 @@ const CustomMainSection = () => {
       <Row className="justify-content-center mt-5">
         {sciFiBooks.map((singleBook) => (
           <Col xs={12} md={8} lg={4} className="pb-3" key={singleBook.asin}>
-            <Card>
-              <Card.Img variant="top" src={singleBook.img} />
-              <Card.Body>
+            <Card className="book-Card">
+              <Card.Img
+                className="img-fluid"
+                variant="top"
+                src={singleBook.img}
+              />
+              <Card.Body className="d-flex flex-column">
                 <Card.Title>{singleBook.title}</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <p>{singleBook.category}</p>
-                <Button variant="primary">{singleBook.price}</Button>
+                <Card.Text className="flex-grow-1"></Card.Text>
+                <hr />
+                <p>Book category: {singleBook.category}</p>
+                <Button className="custom-btn" variant="primary">
+                  {singleBook.price} €
+                </Button>
               </Card.Body>
             </Card>
           </Col>
